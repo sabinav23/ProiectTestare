@@ -1,0 +1,371 @@
+/* CSS RESET */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+h1, p {
+    font-size: medium;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* GLOBAL CSS VARIABLES */
+:root {
+    --shadow-container-color: #00363a;
+    --shadow-input-form: #006064;
+
+    --link-color: #005661;
+
+    --primary: #00838e;
+    --primary-light: #4fb3be;
+    --primary-dark: #00363a;
+
+    --secondary: #006064;
+    --secondary-light: #428e92;
+    --secondary-dark: #00363a;
+
+
+}
+
+/* NAVBAR CSS */
+.navbar {
+    background-color: #00363a;
+    height: 50px;
+}
+
+.navbar .nav {
+    display: grid;
+    grid-template-columns: 50px auto;
+    height: 100%;
+    padding: 0 50px;
+    column-gap: 20px;
+}
+
+.dropdown .dropdown-btn {
+    display: none;
+}
+
+.nav .logo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #00838e;
+}
+
+.dropdown .nav-list {
+    display: flex;
+    height: 100%;
+}
+
+.nav-list .list-item {
+    height: 100%;
+    color: #fff;
+    font-size: 1.25rem;
+    display: grid;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.nav-list .list-item:hover {
+    background-color: #006064;
+}
+
+.nav-list .list-item:last-child {
+    margin-left: auto;
+}
+
+.request-popup {
+    position: absolute;
+    height: 75px;
+    width: 150px;
+    top:-80px;
+    left: -50px;
+    background-color: var(--primary);
+    border: 2px solid var(--primary-dark);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.request-popup > button, .request-popup > p {
+    text-align: center;
+    margin:auto;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .navbar .nav {
+        position: relative;
+    }
+
+    .dropdown .nav-list {
+        display: none;
+    }
+
+    .dropdown .dropdown-btn {
+        display: block;
+    }
+
+    .navbar .nav {
+        grid-template-columns: 50px 50px;
+        justify-content: space-between;
+    }
+
+    .dropdown .dropdown-btn {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .dropdown-btn i {
+        font-size: 2rem;
+        color: #00838e;
+    }
+
+    .dropdown:hover .nav-list {
+        display: flex;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        background-color: #00838e;
+        flex-direction: column;
+        height: 100px;
+    }
+
+    .nav-list .list-item:last-child {
+        margin: 0;
+    }
+}
+
+/* POST CSS */
+.posts-list {
+    display: grid;
+    row-gap: 20px;
+}
+
+.posts-list .post-item {
+    display: grid;
+    grid-template-rows: auto minmax(50px, auto) auto;
+    border: 2px solid #006978;
+    padding: 5px 10px;
+    row-gap: 20px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 5px;
+}
+
+.post-item .post-author {
+    font-size: 1.5rem;
+    align-self: flex-start;
+    color: #005662;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.post-item .post-text {
+    padding: 0 10px;
+    white-space: pre-wrap;
+}
+
+.post-item .post-actions {
+    justify-self: end;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 5px;
+}
+
+.post-actions > * {
+    background-color: #00838f;
+    padding: 5px 20px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.post-actions > *:hover {
+    background-color: #005662;
+}
+
+.posts-list .dashed-border {
+    border: 2px dashed #005662;
+}
+
+.post-item .options-list {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    background-color: #fff;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    row-gap: 3px;
+    padding: 3px;
+}
+
+.options-list .option-item {
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #00838f;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.2s ease-in-out;
+}
+
+.options-list .option-item:hover {
+    background-color: #005662;
+}
+
+/* COMMENT */
+
+.post-item .comment-section {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    row-gap: 20px;
+  }
+  
+  .comment-section .section-add-comment {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+  }
+  
+  .section-add-comment .add-comment-input {
+    resize: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  
+  .comment-section .add-comment-btn {
+    align-self: center;
+    justify-self: end;
+    font-size: 1rem;
+    background-color: #00838f;
+    color: #fff;
+    padding: 10px 30px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+  }
+  
+  .section-comments-list > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .section-comments-list .comment-item {
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+    row-gap: 5px;
+    border-bottom: 1px solid #00838f;
+    padding: 10px;
+  }
+  
+  .comment-item .comment-author {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #005662;
+  }
+  
+  .comment-item .comment-text {
+    overflow-x: auto;
+  }
+  
+  .edit-form {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: grid;
+  }
+  
+  .edit-form .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    background-color: #000;
+    z-index: 2;
+  }
+  
+  .edit-form .form-box {
+    align-self: center;
+    justify-self: center;
+    width: 75%;
+    display: grid;
+    grid-template-rows: 150px 50px;
+    z-index: 3;
+  }
+  
+  .form-box .edit-input {
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
+    border: 5px solid #005662;
+    padding: 5px;
+  }
+  
+  .form-box .form-options {
+    justify-self: end;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 10px;
+  }
+  
+  .form-options > * {
+    background-color: #00838f;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .form-options > *:hover {
+    background-color: #005662;
+  }
+  
+  .noscroll {
+    overflow: hidden;
+  }
+
+@media only screen and (max-width: 768px) {
+    .post-item .post-author {
+        justify-self: center;
+    }
+
+    .post-item .post-actions {
+        justify-self: center;
+        column-gap: 1px;
+    }
+
+    .post-item .options-list {
+        transform: translate(0, 100%);
+    }
+}
